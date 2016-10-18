@@ -9,7 +9,7 @@ def App(environ,start_response):
     path = '.' + environ['PATH_INFO']
     if path == "/" or path=="/index.html":
         file = open("index.html")
-        result = file.read()
+        notfound = file.read()
         status = "200 OK"
         file.close()
 
@@ -20,8 +20,7 @@ def App(environ,start_response):
         file.close()
         
     start_response(status,response_headers)
-    return notfound
-
+    return notfound 
 
 class Middleware:
     def __init__(self,app):
